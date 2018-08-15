@@ -46,13 +46,12 @@ public class EditarContatoActivity extends AppCompatActivity {
     private void editarContato(){
         Sessao.instance.getContato().setNome(nome.getText().toString().trim());
         Sessao.instance.getContato().setNumero(numero.getText().toString().trim());
-        new AgendaNegocio().atualizarAgenda(Sessao.instance.getAgenda());
+        new AgendaNegocio().atualizarContato(Sessao.instance.getContato());
         onBackPressed();
     }
 
     private void excluirContato(){
-        Sessao.instance.getAgenda().getContatos().remove(Sessao.instance.getContato());
-        new AgendaNegocio().atualizarAgenda(Sessao.instance.getAgenda());
+        new AgendaNegocio().deletarContato(Sessao.instance.getContato());
         onBackPressed();
     }
 

@@ -24,4 +24,19 @@ public interface AgendaDao {
 
     @Query("select * from agenda")
     public List<Agenda> loadAllAgenda();
+
+    @Insert
+    public void insertContato(Contato contato);
+
+    @Update
+    public void updateContato(Contato contato);
+
+    @Delete
+    public void deleteContato(Contato contato);
+
+    @Query("select * from contato")
+    public List<Contato> loadAllContatos();
+
+    @Query("select * from contato where agendaid = :agendaId")
+    public List<Contato> loadAgendaContatos(int agendaId);
 }

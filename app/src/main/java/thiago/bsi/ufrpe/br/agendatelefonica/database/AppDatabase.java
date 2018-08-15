@@ -10,10 +10,10 @@ import thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio.Agenda;
 import thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio.Contato;
 import thiago.bsi.ufrpe.br.agendatelefonica.infra.MyApp;
 
-@Database(entities = {Agenda.class}, version = 1)
+@Database(entities = {Agenda.class, Contato.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
-    private static boolean tempDatabase = true;
+    private static boolean tempDatabase = false;
 
     public abstract AgendaDao agendaDao();
 

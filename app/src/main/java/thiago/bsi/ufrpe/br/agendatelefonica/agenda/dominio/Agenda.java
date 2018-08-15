@@ -1,30 +1,25 @@
 package thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.TypeConverters;
-import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import thiago.bsi.ufrpe.br.agendatelefonica.infra.ContatoListConverter;
-
 @Entity
 public class Agenda {
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     private int id;
     private String Nome;
-    @TypeConverters(ContatoListConverter.class)
+    @Ignore
     private List<Contato> contatos;
 
-    @NonNull
     public int getId() {
         return id;
     }
 
-    public void setId(@NonNull int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

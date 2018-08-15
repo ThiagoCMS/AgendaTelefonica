@@ -40,8 +40,8 @@ public class CriarContatoActivity extends AppCompatActivity {
         Contato contato = new Contato();
         contato.setNome(nomeContato.getText().toString().trim());
         contato.setNumero(numeroContato.getText().toString().trim());
-        Sessao.instance.getAgenda().addContato(contato);
-        new AgendaNegocio().atualizarAgenda(Sessao.instance.getAgenda());
+        contato.setAgendaId(Sessao.instance.getAgenda().getId());
+        new AgendaNegocio().inserirContato(contato);
         onBackPressed();
     }
 
