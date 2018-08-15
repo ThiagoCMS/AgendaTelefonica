@@ -1,12 +1,14 @@
 package thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio;
 
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import thiago.bsi.ufrpe.br.agendatelefonica.infra.ContatoListConverter;
 
 @Entity
 public class Agenda {
@@ -14,8 +16,8 @@ public class Agenda {
     @NonNull
     private int id;
     private String Nome;
-    @Ignore
-    private List<Contato> contatos = new ArrayList<>();
+    @TypeConverters(ContatoListConverter.class)
+    private List<Contato> contatos;
 
     @NonNull
     public int getId() {
@@ -35,6 +37,9 @@ public class Agenda {
     }
 
     public List<Contato> getContatos() {
+        if (contatos == null){
+            contatos = new ArrayList<>();
+        }
         return contatos;
     }
 
@@ -43,6 +48,9 @@ public class Agenda {
     }
 
     public void addContato(Contato contato){
+        if (contatos == null){
+            contatos = new ArrayList<>();
+        }
         contatos.add(contato);
     }
 }

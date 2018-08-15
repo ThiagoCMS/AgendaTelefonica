@@ -42,12 +42,12 @@ public class EditarAgendaActivity extends AppCompatActivity {
 
     private void clickEditar(){
         Sessao.instance.getAgenda().setNome(nome.getText().toString().trim());
-        new AgendaNegocio().atualizarAgenda(Sessao.instance.getAgenda(), this);
+        new AgendaNegocio().atualizarAgenda(Sessao.instance.getAgenda());
         onBackPressed();
     }
 
     private void clickExcluir(){
-        new AgendaNegocio().deletarAgenda(Sessao.instance.getAgenda(), this);
+        new AgendaNegocio().deletarAgenda(Sessao.instance.getAgenda());
         Sessao.instance.resetAgenda();
         startActivity(new Intent(EditarAgendaActivity.this, AgendasActivity.class));
         finish();

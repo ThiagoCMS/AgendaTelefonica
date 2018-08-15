@@ -35,7 +35,7 @@ public class CriarAgendaActivity extends AppCompatActivity {
     private void criarAgenda(){
         Agenda agenda = new Agenda();
         agenda.setNome(nomeAgenda.getText().toString().trim());
-        new AgendaNegocio().inserirAgenda(agenda, this);
+        new AgendaNegocio().inserirAgenda(agenda);
         onBackPressed();
     }
 
