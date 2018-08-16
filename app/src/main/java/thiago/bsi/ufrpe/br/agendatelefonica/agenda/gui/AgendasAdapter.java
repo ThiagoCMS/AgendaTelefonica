@@ -13,21 +13,20 @@ import java.util.List;
 
 import thiago.bsi.ufrpe.br.agendatelefonica.R;
 import thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio.Agenda;
+import thiago.bsi.ufrpe.br.agendatelefonica.infra.MyApp;
 
 public class AgendasAdapter extends ArrayAdapter<Agenda> {
     private List<Agenda> agendaList;
-    private Context context;
 
-    public AgendasAdapter(@NonNull List<Agenda> agendaList, Context context){
-        super(context, R.layout.linha_agenda, agendaList);
+    public AgendasAdapter(@NonNull List<Agenda> agendaList){
+        super(MyApp.getContext(), R.layout.linha_agenda, agendaList);
         this.agendaList = agendaList;
-        this.context = context;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) MyApp.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.linha_agenda, parent, false);
         TextView nomeAgenda = view.findViewById(R.id.nomeAgendaId);
         nomeAgenda.setText(agendaList.get(position).getNome());

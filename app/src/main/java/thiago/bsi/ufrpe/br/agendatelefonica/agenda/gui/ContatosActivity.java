@@ -24,7 +24,7 @@ public class ContatosActivity extends AppCompatActivity {
     private void setTela(){
         Sessao.instance.getAgenda().setContatos(new AgendaNegocio().recuperarContatosAgenda(Sessao.instance.getAgenda()));
         ListView listView = findViewById(R.id.contatoListViewId);
-        listView.setAdapter(new ContatosAdapter(Sessao.instance.getAgenda().getContatos(), this));
+        listView.setAdapter(new ContatosAdapter(Sessao.instance.getAgenda().getContatos()));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

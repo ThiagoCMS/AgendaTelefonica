@@ -1,13 +1,10 @@
 package thiago.bsi.ufrpe.br.agendatelefonica.agenda.negocio;
 
-import android.content.Context;
-
 import java.util.List;
 
 import thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio.Agenda;
 import thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio.Contato;
 import thiago.bsi.ufrpe.br.agendatelefonica.database.AppDatabase;
-import thiago.bsi.ufrpe.br.agendatelefonica.infra.Sessao;
 
 public class AgendaNegocio {
     public void inserirAgenda(Agenda agenda){

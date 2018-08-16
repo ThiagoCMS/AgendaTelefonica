@@ -13,21 +13,19 @@ import java.util.List;
 
 import thiago.bsi.ufrpe.br.agendatelefonica.R;
 import thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio.Contato;
+import thiago.bsi.ufrpe.br.agendatelefonica.infra.MyApp;
 
 public class ContatosAdapter extends ArrayAdapter<Contato> {
     private List<Contato> contatoList;
-    private Context context;
-
-    public ContatosAdapter(@NonNull List<Contato> contatoList, Context context){
-        super(context, R.layout.linha_contato, contatoList);
+    public ContatosAdapter(@NonNull List<Contato> contatoList){
+        super(MyApp.getContext(), R.layout.linha_contato, contatoList);
         this.contatoList = contatoList;
-        this.context = context;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) MyApp.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.linha_contato, parent, false);
         TextView nomeContato = view.findViewById(R.id.nomeContatoId);
         nomeContato.setText(contatoList.get(position).getNome());

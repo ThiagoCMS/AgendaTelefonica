@@ -3,7 +3,6 @@ package thiago.bsi.ufrpe.br.agendatelefonica.database;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
-import android.content.Context;
 
 import thiago.bsi.ufrpe.br.agendatelefonica.agenda.dao.AgendaDao;
 import thiago.bsi.ufrpe.br.agendatelefonica.agenda.dominio.Agenda;
@@ -22,7 +21,7 @@ public abstract class AppDatabase extends RoomDatabase {
             if (tempDatabase) {
                 instance = Room.inMemoryDatabaseBuilder(MyApp.getContext(), AppDatabase.class).allowMainThreadQueries().build();
             }else{
-                instance = Room.databaseBuilder(MyApp.getContext(), AppDatabase.class, "Agendas").fallbackToDestructiveMigration().build();
+                instance = Room.databaseBuilder(MyApp.getContext(), AppDatabase.class, "Agendas").allowMainThreadQueries().fallbackToDestructiveMigration().build();
             }
         }
         return instance;

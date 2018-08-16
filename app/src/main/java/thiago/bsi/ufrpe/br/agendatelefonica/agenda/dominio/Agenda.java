@@ -41,11 +41,4 @@ public class Agenda {
     public void setContatos(List<Contato> contatos) {
         this.contatos = contatos;
     }
-
-    public void addContato(Contato contato){
-        if (contatos == null){
-            contatos = new ArrayList<>();
-        }
-        contatos.add(contato);
-    }
 }

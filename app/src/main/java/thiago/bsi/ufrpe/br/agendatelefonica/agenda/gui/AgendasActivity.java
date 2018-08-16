@@ -28,7 +28,7 @@ public class AgendasActivity extends AppCompatActivity {
     private void setTela(){
         agendaList = new AgendaNegocio().recuperarAgendas();
         ListView listView = findViewById(R.id.agendaListViewId);
-        listView.setAdapter(new AgendasAdapter(agendaList, this));
+        listView.setAdapter(new AgendasAdapter(agendaList));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

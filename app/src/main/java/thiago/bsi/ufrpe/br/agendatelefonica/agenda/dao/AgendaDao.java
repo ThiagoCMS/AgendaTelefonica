@@ -34,9 +34,6 @@ public interface AgendaDao {
     @Delete
     public void deleteContato(Contato contato);
 
-    @Query("select * from contato")
-    public List<Contato> loadAllContatos();
-
     @Query("select * from contato where agendaid = :agendaId")
     public List<Contato> loadAgendaContatos(int agendaId);
 }
